@@ -1,0 +1,358 @@
+@charset "UTF-8";
+/*
+  1. より直感的なボックスサイズのモデルを使用
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. デフォルトのマージンを削除
+*/
+* {
+  margin: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6, li, a, span, em, ul {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+  3. 高さは%ベースを使用
+*/
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/*
+  タイポグラフィの微調整
+  4. アクセシブルなline-heightを追加
+  5. テキストのレンダリングを改善
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+}
+
+/*
+  6. メディア要素のデフォルトを改善
+*/
+img, picture, video, canvas, svg {
+  display: inline-block;
+  max-width: 100%;
+}
+
+/*
+  7. フォームのfontに関するデフォルトを削除
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+
+/*
+  8. テキストのオーバーフローを回避
+*/
+p, h1, h2, h3, h4, h5, h6, li, a, span, em {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/*
+  9. ルートのスタックコンテキストを作成
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+li {
+  list-style: none;
+}
+
+em {
+  font-style: normal;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.glitch {
+  background: #000 no-repeat center;
+  background-size: 0;
+  width: 1000px;
+  height: 562px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  cursor: pointer;
+}
+.glitch::before, .glitch::after,
+.glitch .channel {
+  background: inherit;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.glitch::before {
+  content: "";
+}
+.glitch::after {
+  content: "";
+}
+.glitch:hover:before {
+  animation: glitch-before 3s linear infinite alternate both;
+}
+@keyframes glitch-before {
+  0% {
+    clip-path: polygon(0% 30.3210173761%, 100% 30.3210173761%, 100% 32.2028008455%, 0% 32.2028008455%);
+    transform: translate(1.1910474013%, -0.1962821745%);
+  }
+  2% {
+    clip-path: polygon(0% 1.0004624574%, 100% 1.0004624574%, 100% 10.4463328235%, 0% 10.4463328235%);
+    transform: translate(-6.7680570981%, -0.3186158175%);
+  }
+  4% {
+    clip-path: polygon(0% 79.2894765683%, 100% 79.2894765683%, 100% 85.1157590078%, 0% 85.1157590078%);
+    transform: translate(-3.0445095932%, 0.3301377383%);
+  }
+  6% {
+    clip-path: polygon(0% 80.6107073395%, 100% 80.6107073395%, 100% 82.6815526667%, 0% 82.6815526667%);
+    transform: translate(-5.8689425502%, -0.3515497323%);
+  }
+  8% {
+    clip-path: polygon(0% 40.0798036479%, 100% 40.0798036479%, 100% 44.9337895566%, 0% 44.9337895566%);
+    transform: translate(5.1742492716%, 0.4120002194%);
+  }
+  10% {
+    clip-path: polygon(0% 32.6786764029%, 100% 32.6786764029%, 100% 39.7158086734%, 0% 39.7158086734%);
+    transform: translate(-3.3754639722%, -0.4226020642%);
+  }
+  12% {
+    clip-path: polygon(0% 43.4306087293%, 100% 43.4306087293%, 100% 49.4274299066%, 0% 49.4274299066%);
+    transform: translate(-2.7109610944%, 0.4171415793%);
+  }
+  14% {
+    clip-path: polygon(0% 61.7825503706%, 100% 61.7825503706%, 100% 65.9810171615%, 0% 65.9810171615%);
+    transform: translate(1.4677016902%, -0.4492719465%);
+  }
+  16% {
+    clip-path: polygon(0% 75.9587566544%, 100% 75.9587566544%, 100% 79.8883259905%, 0% 79.8883259905%);
+    transform: translate(-7.7345742033%, -0.0953262816%);
+  }
+  18% {
+    clip-path: polygon(0% 70.7649207227%, 100% 70.7649207227%, 100% 74.3880716705%, 0% 74.3880716705%);
+    transform: translate(1.1604062413%, -0.2588399771%);
+  }
+  20%, 100% {
+    clip-path: none;
+    transform: none;
+  }
+}
+.glitch:hover:after {
+  animation: glitch-after 3s linear infinite alternate both;
+}
+@keyframes glitch-after {
+  0% {
+    clip-path: polygon(0% 50.5632159009%, 100% 50.5632159009%, 100% 59.8763631678%, 0% 59.8763631678%);
+    transform: translate(-4.9666074278%, 0.2870210509%);
+  }
+  2% {
+    clip-path: polygon(0% 80.2179635168%, 100% 80.2179635168%, 100% 87.3572529721%, 0% 87.3572529721%);
+    transform: translate(3.2002448568%, -0.0057796971%);
+  }
+  4% {
+    clip-path: polygon(0% 26.4445480463%, 100% 26.4445480463%, 100% 28.4265800627%, 0% 28.4265800627%);
+    transform: translate(1.5180392908%, -0.1499971327%);
+  }
+  6% {
+    clip-path: polygon(0% 70.2217772317%, 100% 70.2217772317%, 100% 71.814566408%, 0% 71.814566408%);
+    transform: translate(-1.1154332662%, -0.488342585%);
+  }
+  8% {
+    clip-path: polygon(0% 59.8033666472%, 100% 59.8033666472%, 100% 66.6926286727%, 0% 66.6926286727%);
+    transform: translate(-0.1772109217%, 0.3783550535%);
+  }
+  10% {
+    clip-path: polygon(0% 18.9552961707%, 100% 18.9552961707%, 100% 24.2782893514%, 0% 24.2782893514%);
+    transform: translate(3.9050768718%, -0.0978460747%);
+  }
+  12% {
+    clip-path: polygon(0% 77.1206118283%, 100% 77.1206118283%, 100% 85.422995014%, 0% 85.422995014%);
+    transform: translate(-1.6088419954%, 0.4120124879%);
+  }
+  14% {
+    clip-path: polygon(0% 37.056497453%, 100% 37.056497453%, 100% 42.440558418%, 0% 42.440558418%);
+    transform: translate(-5.7848239642%, -0.4247365834%);
+  }
+  16% {
+    clip-path: polygon(0% 25.9378782358%, 100% 25.9378782358%, 100% 33.3730597761%, 0% 33.3730597761%);
+    transform: translate(-5.9378988877%, 0.158242136%);
+  }
+  18% {
+    clip-path: polygon(0% 23.4725238406%, 100% 23.4725238406%, 100% 32.4717766779%, 0% 32.4717766779%);
+    transform: translate(6.1652913385%, -0.0048972966%);
+  }
+  20%, 100% {
+    clip-path: none;
+    transform: none;
+  }
+}
+.glitch:hover .channel {
+  mix-blend-mode: screen;
+}
+.glitch:hover .channel::before {
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  mix-blend-mode: multiply;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.glitch:hover .r {
+  animation: rgb-shift-r 3s steps(1, jump-end) infinite alternate both;
+}
+@keyframes rgb-shift-r {
+  0% {
+    transform: translate(-1.9839717073%, 0.420418621%);
+  }
+  2% {
+    transform: translate(1.9068045927%, -0.1286142698%);
+  }
+  4% {
+    transform: translate(-1.7614404366%, 0.4893602939%);
+  }
+  6% {
+    transform: translate(1.6061401754%, -0.4147103958%);
+  }
+  8% {
+    transform: translate(0.6875373705%, 0.4303225689%);
+  }
+  10% {
+    transform: translate(-1.8353642065%, 0.132159027%);
+  }
+  12% {
+    transform: translate(0.8051748739%, -0.0566741958%);
+  }
+  14% {
+    transform: translate(-0.0557419088%, -0.0036724274%);
+  }
+  16% {
+    transform: translate(-0.438032924%, 0.3279828797%);
+  }
+  18% {
+    transform: translate(-0.2477498749%, 0.2764406244%);
+  }
+  20%, 100% {
+    transform: none;
+  }
+}
+.glitch:hover .r::before {
+  background: red;
+}
+.glitch:hover .g {
+  animation: rgb-shift-g 3s steps(1, jump-end) infinite alternate both;
+}
+@keyframes rgb-shift-g {
+  0% {
+    transform: translate(-1.3029347468%, -0.1416953978%);
+  }
+  2% {
+    transform: translate(1.3679421556%, -0.2802532071%);
+  }
+  4% {
+    transform: translate(0.7631213052%, 0.2453696981%);
+  }
+  6% {
+    transform: translate(0.5028527643%, 0.2436159405%);
+  }
+  8% {
+    transform: translate(1.7402310095%, 0.0989151934%);
+  }
+  10% {
+    transform: translate(-1.1382702567%, -0.017516871%);
+  }
+  12% {
+    transform: translate(-1.3186972603%, 0.0808304272%);
+  }
+  14% {
+    transform: translate(-0.8294277382%, -0.2495142677%);
+  }
+  16% {
+    transform: translate(0.2427027328%, 0.0824459021%);
+  }
+  18% {
+    transform: translate(-1.1254481423%, -0.1068809301%);
+  }
+  20%, 100% {
+    transform: none;
+  }
+}
+.glitch:hover .g::before {
+  background: #0f0;
+}
+.glitch:hover .b {
+  animation: rgb-shift-b 3s steps(1, jump-end) infinite alternate both;
+}
+@keyframes rgb-shift-b {
+  0% {
+    transform: translate(0.2113854208%, 0.2328948344%);
+  }
+  2% {
+    transform: translate(0.4208310488%, 0.0674212799%);
+  }
+  4% {
+    transform: translate(1.7609481721%, 0.3216267469%);
+  }
+  6% {
+    transform: translate(0.769847668%, -0.2759222564%);
+  }
+  8% {
+    transform: translate(-1.2750040768%, -0.0214210238%);
+  }
+  10% {
+    transform: translate(1.7583096706%, 0.2413294575%);
+  }
+  12% {
+    transform: translate(-1.545476287%, 0.1481459165%);
+  }
+  14% {
+    transform: translate(0.1029525966%, 0.3984508242%);
+  }
+  16% {
+    transform: translate(0.9405011472%, 0.2749759687%);
+  }
+  18% {
+    transform: translate(1.3739131349%, -0.1503950018%);
+  }
+  20%, 100% {
+    transform: none;
+  }
+}
+.glitch:hover .b::before {
+  background: #00f;
+}
+
+/*# sourceMappingURL=style.css.map */
